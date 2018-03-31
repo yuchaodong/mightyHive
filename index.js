@@ -9,7 +9,7 @@ function getCookieValue(cookieKey) {
     }
     return null;
 }
-  
+
   
 function setCookieKeyValue(cookieKey, cookieValue) {
     const date = new Date();
@@ -23,13 +23,34 @@ function getRandomBinary() {
     return Math.random() < 0.5 ? 0 : 1;
 }
 
+
+function incrementColorCount(color) {
+    //TODO: using cookie
+    // store 'count'
+    let count = getCookieValue('count');
+    count ? count++ : count = 1;
+    setCookieKeyValue('count', count);
+    return count;
+}
+
+
 function getColor() {
     let color = getCookieValue('color')
     if (color === null) {
         color = getRandomBinary() ? 'red' : 'blue';
         setCookieKeyValue('color', color);
     }
+    // create a div/button that says 'you've viewed this color x times!'
+    // incrementColorCount(color)
     return color;
 }
 
-document.getElementById('displayedColor').innerHTML = getColor();
+// const displayedColor = document.
+// const displayedCount = document.getElementById('displayedCount');
+
+// document.getElementById('displayedColor').innerHTML = getColor();
+// incrementColorCount();
+displayedCount.innerHTML = `You have viewed ${getColor()} ${incrementColorCount()} time(s)` ;
+// TODO: create web server using node/express
+// TODO: show color as a picture (have both images, hide both, only show one)
+// TODO: display count in html. Add nice styling lol
