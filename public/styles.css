@@ -1,9 +1,23 @@
+body {
+    font-family: georgia;
+    color: rgb(53, 4, 4);
+    background-color: beige;
+    text-align: center;
+}
+
 #redBall {
     width: 100px;
     height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
 }
 
 #blueBall {
     width: 99px;
     height: 99px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
 }
+

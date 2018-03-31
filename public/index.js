@@ -30,14 +30,9 @@ function getColor() {
         color = getRandomBinary() ? 'red' : 'blue';
         setCookieKeyValue('color', color);
     };
-    // color = color === 'red' ? "https://bit.ly/2pVMtxh": "https://bit.ly/2GoM1Si";
     return color;   
 }
  
-// const img = new Image();
-// img.src = getColor();
-
-
 
 function incrementColorCount(color) {
     let count = getCookieValue('count');
@@ -47,15 +42,17 @@ function incrementColorCount(color) {
 }
 
 
-const displayedColor = document.getElementById('displayedColor');
+function showImg(color) {
+    if (color === 'red') {
+        displayedImg.style.display = 'block'; 
+    } else {
+        displayedImg.style.display = 'block';
+    }
+}
+
+
+const displayedImg = document.getElementById(getColor()+'Ball');
 const displayedCount = document.getElementById('displayedCount');
 
-displayedColor.innerHTML = `${getColor()}`;
-displayedCount.innerHTML = `You have viewed ${getColor()} ${incrementColorCount()} times`;
-// displayedCount.appendChild(img)
-
-
-// TODO: show color as a picture (have both images, hide both, only show one)
-// TODO: display count in html. Add nice styling lol
-// TODO: README
-// TODO IF TIME: if count = 1 => 'time'. Else => 'times'
+displayedImg.innerHTML = `${showImg()}`;
+displayedCount.innerHTML = `You have viewed ${getColor()} ${incrementColorCount()} times!`;
