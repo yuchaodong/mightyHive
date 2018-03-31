@@ -29,11 +29,14 @@ function getColor() {
     if (color === null) {
         color = getRandomBinary() ? 'red' : 'blue';
         setCookieKeyValue('color', color);
-    }
-    // create a div/button that says 'you've viewed this color x times!'
-    // incrementColorCount(color)
-    return color;
+    };
+    // color = color === 'red' ? "https://bit.ly/2pVMtxh": "https://bit.ly/2GoM1Si";
+    return color;   
 }
+ 
+// const img = new Image();
+// img.src = getColor();
+
 
 
 function incrementColorCount(color) {
@@ -47,11 +50,12 @@ function incrementColorCount(color) {
 const displayedColor = document.getElementById('displayedColor');
 const displayedCount = document.getElementById('displayedCount');
 
-displayedColor.innerHTML = `${getColor()}`
-displayedCount.innerHTML = `You have viewed ${getColor()} ${incrementColorCount()} time(s)` ;
+displayedColor.innerHTML = `${getColor()}`;
+displayedCount.innerHTML = `You have viewed ${getColor()} ${incrementColorCount()} times`;
+// displayedCount.appendChild(img)
 
 
-// TODO: create web server using node/express
 // TODO: show color as a picture (have both images, hide both, only show one)
 // TODO: display count in html. Add nice styling lol
 // TODO: README
+// TODO IF TIME: if count = 1 => 'time'. Else => 'times'
